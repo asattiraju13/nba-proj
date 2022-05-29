@@ -1,14 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
+import Landing from './pages/Landing';
+import { Button } from '@mui/material';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p className=''>
+        <p className='text-slate-500'>
           Edit <code>src/App.js</code> and save to reload.
         </p>
+        <Landing/>
         <a
           className="App-link"
           href="https://reactjs.org"
