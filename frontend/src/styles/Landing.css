@@ -1,0 +1,10 @@
+.landing {
+  background-image: url('../landing.png');
+  background-repeat: no-repeat;
+  background-size: 100vw 100vh;
+}
+
+.landing b {
+  width: 75vw;
+  margin-bottom: 0.5em;
+}

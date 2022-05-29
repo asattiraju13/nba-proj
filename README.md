@@ -6,7 +6,7 @@ The goal of this app is to generate various plots based on user choices of diffe
 
 ### Tech Stack
 
-Frontend: React, Plotly-react, Chakra UI
+Frontend: React, Plotly-react, Material UI, Tailwind CSS
 
 Backend: Express, Node, MongoDB
 
@@ -15,6 +15,6 @@ Data Acquisition: Python, Pandas, BeautifulSoup
 ### Progress
 
 - [x] Get data into MongoDB database
+- [ ] Design UI with React and MUI
 - [ ] Set up template queries for allowed plotting in Express w/ MongoDB
-- [ ] Design UI React and Chakra, set up template plots
-- [ ] Connect Front-end and Backend
+- [ ] Ensure proper connection of Frontend and Backend, plotting
