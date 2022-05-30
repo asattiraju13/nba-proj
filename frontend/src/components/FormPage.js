@@ -10,8 +10,6 @@ const Form = () => {
 
 const FormPage = () => {
     const [data, setData] = useState([]);
-
-    const trialData = [{"year":2001,"pick":1,"team_id":"WAS","pos":"Forward/Center","player":"Kwame Brown","mp_per_g":14.3,"efg_pct":0.387,"pts_per_g":4.5,"trb_per_g":3.5,"ast_per_g":0.8,"ws":20.8,"bpm":-2.4,"id":"62929676acba23b29b8315e6"},{"year":2001,"pick":2,"team_id":"CHI","pos":"Forward/Center","player":"Tyson Chandler","mp_per_g":19.6,"efg_pct":0.497,"pts_per_g":6.1,"trb_per_g":4.8,"ast_per_g":0.8,"ws":102.1,"bpm":0.1,"id":"62929676acba23b29b8315e7"}]
     
     const columns = [
         {field:'year', headerName:'Year', width: 100},
@@ -40,7 +38,6 @@ const FormPage = () => {
 
     return (
         <AnimatedPage>
-            {/* items-center justify-center */}
             <div className="form min-h-screen
             text-white flex flex-col">
                 <div className='flex flex-col items-center'>
