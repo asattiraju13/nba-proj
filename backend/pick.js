@@ -35,8 +35,8 @@ top_pick_schema.set('toJSON', {
     }
 })
 
-const pick = mongoose.model("Top_pick", top_pick_schema)
+const Pick = mongoose.model("Top_pick", top_pick_schema)
 
 export {
-    pick
+    Pick
 }
