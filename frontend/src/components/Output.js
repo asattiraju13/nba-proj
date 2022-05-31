@@ -1,7 +1,8 @@
 import AnimatedPage from "./AnimatedPage";
 import '../styles/Output.css';
+import { useState } from "react";
 
-const Output = () => {
+const Output = ({params}) => {
     return (
         <AnimatedPage>
             <div className="output min-h-screen text-center

@@ -4,11 +4,9 @@ import AnimatedRoutes from './components/AnimatedRoutes';
 
 function App() {
   return (
-    <div className='App'>
-        <Router>
-          <AnimatedRoutes/>
-      </Router>
-    </div>
+    <Router>
+      <AnimatedRoutes/>
+    </Router>
   );
 }
 
