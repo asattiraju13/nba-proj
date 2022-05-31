@@ -130,7 +130,14 @@ const SliderSection = ({params, setParams}) => {
 const Form = ({params, setParams, columns}) => {
     const navigate = useNavigate();
 
+    const [isBox, setIsBox] = useState(true);
+
     function selectChange(event) {
+        if (event.target.value == 'box') {
+            setIsBox(true);
+        } else {
+            setIsBox(false);
+        }
         setParams({...params, 'type': event.target.value})
         console.log(params);
     }
@@ -167,7 +174,8 @@ const Form = ({params, setParams, columns}) => {
 
                 <div className='mb-4' >&nbsp;</div>
 
-                <div className='text-indigo-400 font-bold text-xl mb-2'>Y-axis Variable (Mean)</div>
+                {isBox && <div className='text-indigo-400 font-bold text-xl mb-2'>Y-axis Variable</div>}
+                {!isBox && <div className='text-indigo-400 font-bold text-xl mb-2'>Y-axis Variable (Displays Means)</div>}
 
                 <CustomSelect params={params} setParams={setParams} name={'y_var'} id={'y_var_id'} columns={columns.slice(5)}/>
 
