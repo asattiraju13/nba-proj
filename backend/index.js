@@ -1,4 +1,4 @@
-import {PORT,} from './utils/config.js'
+import {PORT} from './utils/config.js'
 import { Pick } from './pick.js';
 import express from "express";
 import cors from 'cors';
@@ -27,8 +27,9 @@ app.get('/output/:data', (req, res) => {
         proj = {
             $project: {
                 _id: 0,
-                x: '$_id',
-                y: '$y'
+                name: '$_id',
+                y: '$y',
+                type: "box"
             }
         }
     } else {
@@ -41,7 +42,7 @@ app.get('/output/:data', (req, res) => {
         proj = {
             $project: {
                 _id: 0,
-                x: '$_id',
+                name: '$_id',
                 y: {$round: ['$y', 2]}
             }
         }
@@ -60,7 +61,7 @@ app.get('/output/:data', (req, res) => {
         proj,
         {
             $sort: {
-                x: 1
+                name: 1
             }
         }
         ]).then(picks => {

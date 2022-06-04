@@ -15,6 +15,6 @@ Data Acquisition: Python, Pandas, BeautifulSoup
 ### Progress
 
 - [x] Get data into MongoDB database
-- [ ] Design UI with React and MUI
-- [ ] Set up template queries for allowed plotting in Express w/ MongoDB
-- [ ] Ensure proper connection of Frontend and Backend, plotting
+- [x] Design UI with React and MUI
+- [x] Set up template queries for allowed plotting in Express w/ MongoDB
+- [x] Ensure proper connection of Frontend and Backend, plotting

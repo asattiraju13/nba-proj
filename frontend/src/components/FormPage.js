@@ -168,7 +168,7 @@ const Form = ({params, setParams, columns}) => {
 
                 <div className='text-indigo-400 font-bold text-xl mb-2'>X-axis Variable</div>
 
-                <CustomSelect params={params} setParams={setParams} name={'x_var'} id={'x_var_id'} columns={[columns[1]].concat(columns.slice(3,5))}/>
+                <CustomSelect params={params} setParams={setParams} name={'x_var'} id={'x_var_id'} columns={columns.slice(1,4)}/>
 
                 <div className='mb-4' >&nbsp;</div>
 
