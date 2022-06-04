@@ -2,7 +2,6 @@ import {PORT,} from './utils/config.js'
 import { Pick } from './pick.js';
 import express from "express";
 import cors from 'cors';
-import mongoose from 'mongoose';
 import { response } from 'express';
 
 const app = express()
@@ -12,14 +11,68 @@ app.use(cors());
 // get main notes to display in react table
 app.get('/form', (req, res) => {
     Pick.find({}).then(picks => res.send(picks)).catch(error => response.status(500).end())
-    // Pick.aggregate({
-        
-    // })
 })
 
 app.get('/output/:data', (req, res) => {
     const params = JSON.parse(req.params.data);
-    res.send(params);
+    let op = {}
+    let proj = {}
+    if (params.type === 'box') {
+        op = {
+            $group: {
+                _id: "$" + params.x_var,
+                y: {$push: "$" + params.y_var}
+            }
+        } 
+        proj = {
+            $project: {
+                _id: 0,
+                x: '$_id',
+                y: '$y'
+            }
+        }
+    } else {
+        op = {
+            $group: {
+                _id: "$" + params.x_var,
+                y: {$avg: "$" + params.y_var}
+            }
+        }
+        proj = {
+            $project: {
+                _id: 0,
+                x: '$_id',
+                y: {$round: ['$y', 2]}
+            }
+        }
+    }
+
+    Pick.aggregate([
+        {
+            $match: {
+                'pts_per_g': {$gte: params.filter_num.pts_per_g.min, $lte: params.filter_num.pts_per_g.max},
+                'trb_per_g': {$gte: params.filter_num.trb_per_g.min, $lte: params.filter_num.trb_per_g.max},
+                'ast_per_g': {$gte: params.filter_num.ast_per_g.min, $lte: params.filter_num.ast_per_g.max},
+                'pos': {$in: params.filter_pos}
+            }
+        },
+        op,
+        proj,
+        {
+            $sort: {
+                x: 1
+            }
+        }
+        ]).then(picks => {
+        if (picks.length === 0) {
+            console.log('empty!!!')
+            res.status(404).end()
+        } else {
+            res.send(picks);
+        }
+    }).catch(error => {
+        res.status(500).end()
+    })
 })
 
 app.listen(PORT, () => {

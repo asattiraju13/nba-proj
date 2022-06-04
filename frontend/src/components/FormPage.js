@@ -210,6 +210,13 @@ const FormPage = ({params, setParams}) => {
     ]
 
     useEffect(() => {
+        setParams({
+            type: "box",
+            x_var: "pick",
+            y_var: "mp_per_g",
+            filter_pos: ["Guard","Guard/Forward","Forward","Forward/Center","Center"],
+            filter_num: {'pts_per_g':{'min':1, 'max':23},'trb_per_g':{'min':0,'max':13},'ast_per_g':{'min':0,'max':9}}
+        })
         axios.get('http://localhost:3001/form').then(response => {
             setData(response.data);
         }).catch(error => {
