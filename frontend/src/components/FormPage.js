@@ -94,7 +94,6 @@ const SliderSection = ({params, setParams}) => {
             setParams({...params,filter_pos:prev_pos})
         }
         setChecked(dup)
-        console.log(params)
     }
 
 
@@ -139,7 +138,6 @@ const Form = ({params, setParams, columns}) => {
             setIsBox(false);
         }
         setParams({...params, 'type': event.target.value})
-        console.log(params);
     }
 
     const submitForm = (event) => {
@@ -170,7 +168,7 @@ const Form = ({params, setParams, columns}) => {
 
                 <div className='text-indigo-400 font-bold text-xl mb-2'>X-axis Variable</div>
 
-                <CustomSelect params={params} setParams={setParams} name={'y_var'} id={'y_var_id'} columns={[columns[1]].concat(columns.slice(3,5))}/>
+                <CustomSelect params={params} setParams={setParams} name={'x_var'} id={'x_var_id'} columns={[columns[1]].concat(columns.slice(3,5))}/>
 
                 <div className='mb-4' >&nbsp;</div>
 
@@ -215,7 +213,6 @@ const FormPage = ({params, setParams}) => {
         axios.get('http://localhost:3001/form').then(response => {
             setData(response.data);
         }).catch(error => {
-            console.log(error);
             alert("Data not available to show in table!");
         })
     }, [])

@@ -4,10 +4,3 @@
     background-size: 100vw 500vh;
     position: relative;
 }
-
-.arrow {
-    position: absolute;
-    margin-left: auto;
-    margin-right: auto;
-    top: 90%;
-}

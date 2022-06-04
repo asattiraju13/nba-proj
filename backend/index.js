@@ -9,13 +9,17 @@ const app = express()
 app.use(express.json())
 app.use(cors());
 
-app.get('/', (req, res) => {
-    res.send("Hello world")
-})
-
 // get main notes to display in react table
 app.get('/form', (req, res) => {
     Pick.find({}).then(picks => res.send(picks)).catch(error => response.status(500).end())
+    // Pick.aggregate({
+        
+    // })
+})
+
+app.get('/output/:data', (req, res) => {
+    const params = JSON.parse(req.params.data);
+    res.send(params);
 })
 
 app.listen(PORT, () => {
