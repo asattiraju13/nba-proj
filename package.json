@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "build": "cd frontend && yarn build",
-    "install-client": "cd frontend && yarn",
+    "install-client": "cd frontend && yarn install",
     "heroku-postbuild": "yarn run install-client && yarn run build",
     "dev": "nodemon index.js"
   },

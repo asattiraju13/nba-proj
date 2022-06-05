@@ -9,7 +9,14 @@ app.use(express.json())
 app.use(cors());
 
 if (process.env.NODE_ENV === 'PRODUCTION') {
-    app.use(express.static('frontend/build'))
+    app.use(express.static('frontend/build'));
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+
+    app.get("*", (req, res) => {
+
+        res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
+    
+    });
 }
 
 // get main notes to display in react table
