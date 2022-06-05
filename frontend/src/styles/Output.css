@@ -1,5 +1,9 @@
 .output {
     background-image: url('../output.png');
     background-repeat: no-repeat;
-    background-size: 100vw 100vh;
+    background-size: 100vw 140vh;
+}
+
+.back_button {
+    height: 36.5px;
 }

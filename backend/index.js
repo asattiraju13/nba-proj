@@ -8,6 +8,10 @@ const app = express()
 app.use(express.json())
 app.use(cors());
 
+if (process.env.NODE_ENV === 'PRODUCTION') {
+    app.use(express.static('../frontend/build'))
+}
+
 // get main notes to display in react table
 app.get('/form', (req, res) => {
     Pick.find({}).then(picks => res.send(picks)).catch(error => response.status(500).end())

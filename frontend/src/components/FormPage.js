@@ -16,7 +16,6 @@ const CustomSelect = ({params, setParams, name, columns, id}) => {
         state_dup[name] = val
 
         setParams(state_dup)
-        // console.log(params);
     }
     return (
         <FormControl required>
