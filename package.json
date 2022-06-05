@@ -5,6 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
+    "build": "cd frontend && yarn build",
+    "install-client": "cd frontend && yarn",
+    "heroku-postbuild": "yarn run install-client && yarn run build",
     "dev": "nodemon index.js"
   },
   "author": "Abhinav Sattiraju",
